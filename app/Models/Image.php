@@ -8,6 +8,7 @@ class Image extends Model
 {
     protected $guarded = [];
 
+    // one to one inverse
     public function imageable()
     {
         return $this->morphTo();

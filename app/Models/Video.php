@@ -11,8 +11,15 @@ class Video extends Model
 
     protected $guarded = [];
 
+    // one to many
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    // many to many
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }

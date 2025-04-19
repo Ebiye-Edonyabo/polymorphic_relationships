@@ -13,13 +13,21 @@ class Post extends Model
 
     protected $guarded = [];
 
+    // one to one
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }
     
+    // one to many
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    // many to many
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }
